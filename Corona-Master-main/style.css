@@ -1,0 +1,130 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+}
+:root {
+  --white: #fff;
+  --black: #131826;
+  --blue: #1e94d2;
+  --dark: #202740;
+  --gray: #d9d8d8;
+}
+body * {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  height: 100vh;
+  background: var(--black);
+}
+.menu {
+  position: fixed;
+  width: 32px;
+  padding: 12px 8px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--dark);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.5s;
+  border-radius: 50px;
+  z-index: 999;
+  transform: translateY(-50%);
+  top: 50%;
+}
+.menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--white);
+}
+.menu-link.active {
+  background-color: var(--blue);
+}
+.menu-link:hover {
+  background-color: var(--black);
+}
+.container {
+  width: calc(100% - 100px);
+  max-width: calc(100% - 100px);
+  padding: 10px 20px 30px;
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  color: var(--gray);
+}
+.container h1 {
+  padding: 20px;
+  font-size: 24px;
+}
+svg{
+  width: 30%;
+}
+.norte {
+  fill: #63ab3f;
+}
+.nordeste {
+  fill: #f0b541;
+}
+.centro-oeste {
+  fill: #ffae70;
+}
+.sudeste {
+  fill: #4fa4b8;
+}
+.sul {
+  fill: #686f99;
+}
+path {
+  fill: #1da1f2;
+  stroke: white;
+  stroke-width: 1px;
+}
+path:hover {
+  fill: purple;
+  stroke: red;
+  stroke-width: 3px;
+  transition: fill 0.4s;
+}
+.tooltip {
+  pointer-events: none;
+  position: absolute;
+  font-size: 18px;
+  text-align: center;
+  background: white;
+  padding: 10px 15px;
+  z-index: 5;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  color: #21669e;
+  border-radius: 5px;
+  transform: translateX(-50%);
+  display: none;
+}
+.tooltip.active {
+  display: block;
+}
+.tooltip:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 0;
+  margin-left: -10px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
