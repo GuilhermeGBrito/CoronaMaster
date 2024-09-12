@@ -128,3 +128,94 @@ path:hover {
   border-right: 10px solid transparent;
   border-top: 10px solid white;
 }
+
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+
+.menu-link {
+  font-size: 24px;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.carousel {
+  width: 60%;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chatbot-box {
+  width: 35%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.chatbot-messages {
+  height: 200px;
+  overflow-y: scroll;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input {
+  width: calc(100% - 60px);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.user-message {
+  text-align: right;
+}
+
+.user-message p {
+  background-color: #007BFF;
+  color: white;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.bot-message p {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}

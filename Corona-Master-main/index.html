@@ -35,12 +35,88 @@
         </a>
     </div>
 
+    <div class="header">
+        <div class="carousel">
+            <img src="images/On Our Hand.png" class="carousel-img" alt="Imagem 1">
+            <img src="images/On Our Hand (1).png" class="carousel-img" alt="Imagem 2">
+            <img src="https://agenciabrasilia.df.gov.br/wp-conteudo/uploads/2024/01/dengue-hemo.png" class="carousel-img" alt="Imagem 3">
+        </div>
+        <div class="chatbot-box">
+            <h2>Precauções contra a Dengue</h2>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="bot-message">
+                    <p><strong>Bot:</strong> Olá! Como posso ajudar? Pergunte sobre precauções contra a dengue.</p>
+                </div>
+            </div>
+            <input type="text" id="user-input" placeholder="Digite sua pergunta..." class="chat-input">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Conteúdo da página -->
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        // Carrossel de imagens
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.carousel-img');
+        const imageCount = images.length;
+
+        function changeImage() {
+            images[currentImageIndex].style.display = 'none';
+            currentImageIndex = (currentImageIndex + 1) % imageCount;
+            images[currentImageIndex].style.display = 'block';
+        }
+
+        setInterval(changeImage, 3000); // Alternar imagem a cada 3 segundos
+        images.forEach((img, index) => {
+            if (index !== 0) img.style.display = 'none';
+        });
+
+        // Chatbot simples com respostas personalizadas
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            const chatbotMessages = document.getElementById('chatbot-messages');
+            if (userInput) {
+                // Adiciona a mensagem do usuário
+                const userMessage = `<div class="user-message"><p><strong>Você:</strong> ${userInput}</p></div>`;
+                chatbotMessages.innerHTML += userMessage;
+
+                // Respostas automáticas do chatbot
+                let botResponse = '';
+
+                if (userInput.toLowerCase().includes('prevenção')) {
+                    botResponse = 'Para prevenir a dengue, evite água parada e use repelente!';
+                } else if (userInput.toLowerCase().includes('sintomas')) {
+                    botResponse = 'Os sintomas da dengue incluem febre alta, dores musculares e nas articulações.';
+                } else if (userInput.toLowerCase().includes('olá')) {
+                    botResponse = 'Olá! Como posso ajudar você hoje?';
+                } else if (userInput.toLowerCase().includes('bom dia')) {
+                    botResponse = 'Bom dia! Espero que você esteja bem. Como posso ajudar?';
+                } else if (userInput.toLowerCase().includes('boa tarde')) {
+                    botResponse = 'Boa tarde! Como posso ajudar você?';
+                } else if (userInput.toLowerCase().includes('boa noite')) {
+                    botResponse = 'Boa noite! Está precisando de ajuda com algo?';
+                } else if (userInput.toLowerCase().includes('mal')) {
+                    botResponse = 'Sinto muito que você esteja se sentindo mal. É importante consultar um médico se você estiver com sintomas graves.';
+                } else {
+                    botResponse = 'Desculpe, não entendi. Tente perguntar sobre prevenção, sintomas ou como você está se sentindo.';
+                }
+
+                // Adiciona a resposta do bot
+                const botMessage = `<div class="bot-message"><p><strong>Bot:</strong> ${botResponse}</p></div>`;
+                chatbotMessages.innerHTML += botMessage;
+
+                // Limpa o campo de entrada
+                document.getElementById('user-input').value = '';
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Scroll automático para o final
+            }
+        }
+    </script>
 
 </body>
 
