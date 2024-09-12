@@ -154,13 +154,23 @@ body {
 }
 
 .carousel {
-  width: 60%;
+  width: 100%; /* Usa toda a largura disponível */
+  max-width: 900px; /* Define um limite máximo de largura */
+  margin: 0 auto; /* Centraliza o carrossel */
+  overflow: hidden; /* Esconde o que ultrapassar o container */
+  position: relative;
+}
+
+.carousel-img {
+  width: 100%; /* Define a imagem para ocupar toda a largura do carrossel */
+  height: 750px; /* Define uma altura fixa */
+  object-fit: cover; /* Garante que a imagem seja cortada de forma proporcional, se necessário */
+  transition: transform 0.5s ease; /* Adiciona transição suave entre as imagens */
 }
 
 .carousel img {
-  width: 100%;
-  height: auto;
   display: block;
+  margin: 0 auto; /* Centraliza as imagens dentro do carrossel */
 }
 
 .chatbot-box {
@@ -219,3 +229,62 @@ button:hover {
   border-radius: 5px;
   display: inline-block;
 }
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .chatbot-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .menu {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    width: auto;
+    padding: 10px;
+    background-color: var(--dark);
+    border-radius: 30px;
+  }
+
+  .menu-link {
+    font-size: 18px;
+  }
+
+  .header {
+    padding: 10px;
+  }
+
+  .chat-input {
+    width: calc(100% - 80px);
+  }
+
+  button {
+    padding: 8px 16px;
+  }
+}
+.map-container {
+  margin-top: 20px;
+  width: 100%;
+  height: 450px;
+}
+
+
+
